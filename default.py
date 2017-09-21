@@ -6,7 +6,7 @@ import sys, urllib
 from flask import Flask, render_template, request
 
 
-app = Flask(__name__, template_folder='templates', static_url_path='/templates')
+app = Flask(__name__, template_folder='templates', static_url_path='/static')
 
 @app.route("/")
 
