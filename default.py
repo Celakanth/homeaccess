@@ -3,16 +3,24 @@
 import cgi
 import cgitb
 import sys, urllib
+
+
 from flask import Flask, render_template, request, session, redirect, url_for, escape
 from subprocess import call
 import pymysql
 
+
+
 sys.setrecursionlimit(2000)
 
 app = Flask(__name__, template_folder='templates', static_url_path='/static')
+
 app.config["DEBUG"] = True
 # app.secret_key = "ismine"
 comments = []
+globalString = "0"
+
+
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -31,16 +39,21 @@ def main():
                 comments.append(request.form["demo-name"])
                 session["username"] = comments
                 if comments == "celakanth":
-                    return render_template("message.html")
+                    return render_template("message.html", globalString = "1")
                 if 'username' in session:
                     comments.append(escape(session['username']))
                 if comments.count("celakanth") > 0:
-                    return render_template("message.html")
+                    return render_template("message.html", globalString="1")
             else:
                 return render_template('login.html')
         if page == '2':
             session.clear()
             return render_template('index.html')
+        if page == '3':
+            if 'username' in session:
+                return render_template('HomeMenu.html')
+            else:
+                return render_template('login.html')
     if page is None:
         if 'username' in session:
             if request.method == "POST":

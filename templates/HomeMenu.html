@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Celakanth Messages</title>
+		<title>Celakanth Home</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="static/js/ie/html5shiv.js"></script><![endif]-->
@@ -31,9 +31,6 @@
 											<li><a href="?id=0">Home</a></li>
 											<li><a href="?id=1">Log In</a></li>
 											<li><a href="?id=2">Log Out</a></li>
-											{% if globalString == '1' %}
-													<li><a href="?id=3">Remote Home</a></li>
-											{%	endif %}
 										</ul>
 									</div>
 								</li>
@@ -44,24 +41,18 @@
 				<!-- Main -->
 					<article id="main">
 						<header>
-							<h2>Message Processing</h2>
-							<p>Voice messages</p>
+							<h2>Celakanth Home Control</h2>
+							<p>Celakanth Home Remote</p>
 						</header>
 						<section class="wrapper style5">
-							<div class="inner">
-								<section>
-									<h4>Merssage</h4>
-									<form action="." method="POST">
-                                        <textarea class="form-control" name="message" placeholder="Enter a message"></textarea><br />
-                                        <input type="submit" value="Post message">
-                                    </form>
-								</section>
-                                {% for comment in comments %}
-									<div class="row">
-										{{ comment }}
-									</div>
-								{% endfor %}
-							</div>
+							<div class="menu">
+                                <ul style="background-color:#000">
+                                    <li><a href="?id=0">Home</a></li>
+                                    <li><a href="?id=1">Log In</a></li>
+                                    <li><a href="?id=2">Log Out</a></li>
+                                </ul>
+
+                            </div>
 						</section>
 					</article>
 
