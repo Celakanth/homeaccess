@@ -25,6 +25,9 @@ def main():
             return render_template('index.html', comments=str(sys.getrecursionlimit()))
         if page == '1':
             if request.method == "POST":
+                if request.form["demo-name"] == "":
+                    return render_template('login.html')
+
                 comments.append(request.form["demo-name"])
                 session["username"] = comments
                 if comments == "celakanth":
@@ -35,6 +38,9 @@ def main():
                     return render_template("message.html")
             else:
                 return render_template('login.html')
+        if page == '2':
+            session.clear()
+            return render_template('index.html')
     if page is None:
         if 'username' in session:
             if request.method == "POST":
@@ -44,8 +50,8 @@ def main():
                 return render_template("message.html")
             else:
                 return render_template("message.html")
-
-    return render_template('index.html')
+        else:
+            return render_template('index.html')
 
 
 app.secret_key = "A0Zr98j/3yX R~XHH!jmN]LWX/,?RT"
