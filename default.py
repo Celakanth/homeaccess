@@ -46,7 +46,7 @@ def main():
             if request.method == "POST":
                 comments.append(escape(session['username']))
                 message = request.form["message"]
-                call(["espeak", "-a", "50", message])
+                call(["espeak", "-a", "200", message])
                 return render_template("message.html")
             else:
                 return render_template("message.html")
